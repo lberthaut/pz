@@ -10,5 +10,5 @@ import { HeaderComponent } from './components/header/header.component'; // ðŸ› ï
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'pz';
+  title = 'Physiozone';
 }

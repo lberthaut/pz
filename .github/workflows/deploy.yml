@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Change cette ligne si tu utilises une autre branche pour ton code source
+  pull_request:
+    branches:
+      - main # Cette ligne permet de déployer aussi lors de la création de pull requests vers la branche principale
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout le code de ton dépôt
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Installer Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16" # Change la version de Node.js si nécessaire
+
+      # Installer les dépendances
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install -g @angular/cli
+
+      # Construire le projet Angular
+      - name: Build Angular project
+        run: |
+          ng build --prod
+
+      # Déployer sur GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # La branche où tu souhaites déployer ton projet
+          folder: dist/nom-de-ton-projet # Le chemin vers le dossier 'dist' de ton projet Angular (remplace 'nom-de-ton-projet' par le nom de ton projet)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

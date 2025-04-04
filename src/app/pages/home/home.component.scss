@@ -1,0 +1,260 @@
+.container-home {
+  color: #1d1d1f;
+  margin: 0;
+  padding: 0;
+  margin-top: 12px;
+
+  section {
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 10px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-size: 56px;
+    line-height: 1.07143;
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: 1.10722;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 1.16667;
+  }
+
+  h4 {
+    font-size: 21px;
+    line-height: 1.19048;
+    font-weight: 400;
+  }
+
+  .links {
+    margin-top: 14px;
+    display: flex;
+    gap: 35px;
+  }
+
+  // Hero section
+  .hero {
+    background-color: #000;
+    color: #f5f5f7;
+    text-align: center;
+    padding: 60px 0;
+    position: relative;
+    min-height: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+
+    .hero-content {
+      z-index: 2;
+      padding-top: 55px;
+    }
+
+    .hero-image {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden; // Ajout pour éviter les débordements
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover; // Assure que l'image couvre bien la zone
+      }
+    }
+  }
+
+  // Product grid
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    .learn-more {
+      padding: 0;
+    }
+
+    .grid-item {
+      background-color: #fbfbfd;
+      text-align: center;
+      padding: 40px 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 5px;
+
+      .item-content {
+        z-index: 2;
+        padding-top: 10px;
+      }
+
+      .item-image {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        overflow: hidden; // Ajout pour éviter les débordements
+
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+          object-fit: cover; // Assure que l'image couvre bien la zone
+          transition: transform 0.3s ease; // Animation au hover
+
+          &:hover {
+            transform: scale(1.05); // Léger zoom au hover
+          }
+        }
+      }
+    }
+  }
+
+  // Promo section
+  .promo {
+    background-color: #f5f5f7;
+    text-align: center;
+    padding: 60px 0;
+    border-radius: 5px;
+
+    .promo-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  // Media queries for responsive design
+  @media (max-width: 1068px) {
+    h1 {
+      font-size: 48px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    h3 {
+      font-size: 21px;
+    }
+
+    h4 {
+      font-size: 19px;
+    }
+
+    .hero {
+      min-height: 400px;
+      padding: 40px 0;
+
+      .hero-image {
+        max-width: 900px; // Réduction de la largeur maximale
+      }
+    }
+
+    .grid-item .item-image {
+      max-width: 300px; // Réduction de la taille des images
+    }
+  }
+
+  @media (max-width: 734px) {
+    h1 {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 19px;
+    }
+
+    .product-grid {
+      grid-template-columns: 1fr; // Une seule colonne sur mobile
+      gap: 8px;
+      padding: 0 8px;
+    }
+
+    .grid-item {
+      min-height: auto !important; // Hauteur adaptative
+      padding: 20px 0 !important;
+
+      .item-image {
+        max-width: 100%; // Image pleine largeur
+        padding: 0 20px; // Padding sur les côtés
+
+        img {
+          max-height: 300px; // Hauteur maximale sur mobile
+          object-fit: contain; // Garde les proportions de l'image
+        }
+      }
+    }
+
+    .hero {
+      min-height: 300px;
+      padding: 30px 0;
+
+      .hero-content {
+        padding-top: 30px;
+      }
+
+      .hero-image {
+        height: 250px; // Hauteur fixe sur mobile
+
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .links {
+      gap: 20px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .promo {
+      padding: 30px 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    .hero {
+      min-height: 200px; // Réduction de la hauteur minimale
+
+      .hero-image {
+        height: 200px; // Hauteur réduite sur très petits écrans
+      }
+    }
+
+    .grid-item {
+      .item-image {
+        padding: 0 10px; // Padding réduit
+
+        img {
+          max-height: 250px; // Hauteur maximale réduite
+        }
+      }
+    }
+  }
+}

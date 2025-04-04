@@ -1,17 +1,56 @@
 .app-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10px 20px;
   background-color: rgba(245, 245, 247, 0.8);
   border-radius: 5px;
   position: relative;
+  z-index: 1000;
 
-  .logo a {
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
+  .logo {
+    height: 20px;
+    margin-top: 1px;
+  }
+
+  // Burger menu button
+  .burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
+    position: relative;
+
+    span {
+      width: 30px;
+      height: 3px;
+      background: #333;
+      border-radius: 10px;
+      transition: all 0.3s linear;
+      transform-origin: center;
+    }
+
+    &.active {
+      span {
+        &:first-child {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:last-child {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+      }
+    }
   }
 
   .nav-links {
@@ -27,11 +66,13 @@
         position: relative;
         margin: 0;
 
-        a {
+        a,
+        .nav-item {
           text-decoration: none;
           color: #333;
           font-weight: 500;
           padding: 10px;
+          cursor: pointer;
 
           &:hover {
             color: inherit;
@@ -42,13 +83,12 @@
           visibility: hidden;
           opacity: 0;
           position: fixed;
-          background-color: rgba(245, 245, 247, 0.8);
+          background-color: rgba(245, 245, 247);
           z-index: 1000;
           width: calc(100% - 16px);
           left: 8px;
-          top: 60px;
+          top: 42px;
           padding: 10px 0;
-          border-radius: 5px;
           transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
           display: flex;
           flex-direction: row;
@@ -80,24 +120,103 @@
         }
 
         &:hover .sub-menu {
-          visibility: visible;
-          opacity: 1;
-          transform: translateY(0);
+          @media (min-width: 769px) {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       }
     }
   }
 
-  .search-cart {
-    display: flex;
-    align-items: center;
+  // Overlay pour fermer le menu en cliquant à l'extérieur
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 990;
+    display: none; // Caché par défaut, affiché uniquement sur mobile
+  }
 
-    .search-icon,
-    .cart-icon {
-      margin-left: 20px;
-      font-size: 20px;
-      text-decoration: none;
-      color: #333;
+  // Media queries for responsive design
+  @media (max-width: 768px) {
+    .burger-menu {
+      display: flex;
+    }
+
+    .menu-overlay {
+      display: block; // Affiché uniquement sur mobile quand le menu est ouvert
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100vh;
+      width: 80%;
+      max-width: 320px;
+      background: rgba(245, 245, 247, 0.98);
+      padding: 80px 20px 20px;
+      overflow-y: auto;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+
+      &.active {
+        right: 0;
+      }
+
+      ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+
+        li {
+          margin: 10px 0;
+          width: 100%;
+
+          a,
+          .nav-item {
+            display: block;
+            padding: 10px 0;
+            font-size: 18px;
+          }
+
+          .sub-menu {
+            position: static;
+            visibility: visible;
+            opacity: 1;
+            width: 100%;
+            background: transparent;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            display: block;
+
+            &.open {
+              max-height: 500px;
+            }
+
+            ul {
+              flex-direction: column;
+              padding-left: 20px;
+
+              li {
+                margin: 5px 0;
+
+                a {
+                  padding: 8px 0;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
