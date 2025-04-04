@@ -31,7 +31,7 @@ jobs:
       # Construire le projet Angular
       - name: Build Angular project
         run: |
-          ng build --prod
+          ng build
 
       # Déployer sur GitHub Pages
       - name: Deploy to GitHub Pages
