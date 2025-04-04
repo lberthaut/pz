@@ -1,103 +1,103 @@
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(245, 245, 247, .8);
-    border-radius: 5px;
-    position: relative;
-  
-    .logo a {
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #333;
-    }
-  
-    .nav-links {
-      ul {
-        display: flex;
-        list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(245, 245, 247, 0.8);
+  border-radius: 5px;
+  position: relative;
+
+  .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .nav-links {
+    ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      justify-content: space-evenly;
+      width: 50vw;
+
+      li {
+        position: relative;
         margin: 0;
-        padding: 0;
-        justify-content: space-evenly;
-        width: 50vw;
-  
-        li {
-          position: relative;
-          margin: 0;
-  
-          a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 10px;
-  
-            &:hover {
-              color: inherit;
-            }
+
+        a {
+          text-decoration: none;
+          color: #333;
+          font-weight: 500;
+          padding: 10px;
+
+          &:hover {
+            color: inherit;
           }
-  
-          .sub-menu {
-            visibility: hidden;
-            opacity: 0;
-            position: fixed;
-            background-color: rgba(245, 245, 247, .8);
-            z-index: 1000;
-            width: calc(100% - 16px);
-            left: 8px;
-            top: 60px;
-            padding: 10px 0;
-            border-radius: 5px;
-            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+        }
+
+        .sub-menu {
+          visibility: hidden;
+          opacity: 0;
+          position: fixed;
+          background-color: rgba(245, 245, 247, 0.8);
+          z-index: 1000;
+          width: calc(100% - 16px);
+          left: 8px;
+          top: 60px;
+          padding: 10px 0;
+          border-radius: 5px;
+          transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+
+          ul {
             display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-  
-            ul {
-              display: flex;
-              justify-content: center;
-              list-style-type: none;
-              padding: 0;
-              margin: 0;
-  
-              li {
-                margin: 0 15px;
-  
-                a {
-                  color: #333;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+              margin: 0 15px;
+
+              a {
+                color: #333;
+                text-decoration: none;
+                display: block;
+                padding: 0 80px;
+
+                &:hover {
                   text-decoration: none;
-                  display: block;
-                  padding: 0 80px;
-  
-                  &:hover {
-                    text-decoration: none;
-                    color: inherit;
-                  }
+                  color: inherit;
                 }
               }
             }
           }
-  
-          &:hover .sub-menu {
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(0);
-          }
+        }
+
+        &:hover .sub-menu {
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0);
         }
       }
     }
-  
-    .search-cart {
-      display: flex;
-      align-items: center;
-  
-      .search-icon,
-      .cart-icon {
-        margin-left: 20px;
-        font-size: 20px;
-        text-decoration: none;
-        color: #333;
-      }
+  }
+
+  .search-cart {
+    display: flex;
+    align-items: center;
+
+    .search-icon,
+    .cart-icon {
+      margin-left: 20px;
+      font-size: 20px;
+      text-decoration: none;
+      color: #333;
     }
   }
+}
