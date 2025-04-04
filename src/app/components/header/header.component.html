@@ -1,50 +1,82 @@
 <header class="app-header">
   <div class="logo">
-    <a href=""
-      ><img class="logo" src="/images/logo.png" alt="Logo physiozone"
-    /></a>
+    <a href="">
+      <img class="logo" src="/images/logo.png" alt="Logo physiozone" />
+    </a>
   </div>
-  <nav class="nav-links">
+
+  <!-- Bouton menu burger pour mobile -->
+  <button
+    class="burger-menu"
+    (click)="toggleMenu()"
+    [class.active]="isMenuOpen"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Navigation principale -->
+  <nav class="nav-links" [class.active]="isMenuOpen">
     <ul>
       <li>
-        <a href="/about">À propos</a>
-        <div class="sub-menu">
+        <span class="nav-item" (click)="toggleSubMenu($event, 'about')"
+          >À propos</span
+        >
+        <div class="sub-menu" [class.open]="activeSubmenu === 'about'">
           <ul>
-            <li><a href="/mission">Notre mission</a></li>
-            <li><a href="/vision">Le cabinet Physiozone</a></li>
+            <li><a href="/mission" (click)="closeMenu()">Notre mission</a></li>
+            <li>
+              <a href="/vision" (click)="closeMenu()">Le cabinet Physiozone</a>
+            </li>
           </ul>
         </div>
       </li>
       <li>
-        <a href="/services">Nos prestations</a>
-        <div class="sub-menu">
+        <span class="nav-item" (click)="toggleSubMenu($event, 'services')"
+          >Nos prestations</span
+        >
+        <div class="sub-menu" [class.open]="activeSubmenu === 'services'">
           <ul>
-            <li><a href="/consulting">Kiné</a></li>
-            <li><a href="/development">Osthéo</a></li>
-            <li><a href="/yoga">Yoga</a></li>
-            <li><a href="/pilates">Pilates</a></li>
+            <li><a href="/consulting" (click)="closeMenu()">Kiné</a></li>
+            <li><a href="/development" (click)="closeMenu()">Osthéo</a></li>
+            <li><a href="/yoga" (click)="closeMenu()">Yoga</a></li>
+            <li><a href="/pilates" (click)="closeMenu()">Pilates</a></li>
           </ul>
         </div>
       </li>
       <li>
-        <a href="/team">L'équipe</a>
-        <div class="sub-menu">
+        <span class="nav-item" (click)="toggleSubMenu($event, 'team')"
+          >L'équipe</span
+        >
+        <div class="sub-menu" [class.open]="activeSubmenu === 'team'">
           <ul>
-            <li><a href="/team-members">Membres de l'équipe</a></li>
-            <li><a href="/photos">Photos de vacances</a></li>
+            <li>
+              <a href="/team" (click)="closeMenu()">Membres de l'équipe</a>
+            </li>
+            <li>
+              <a href="/photos" (click)="closeMenu()">Photos de vacances</a>
+            </li>
           </ul>
         </div>
       </li>
       <li>
-        <a href="/contact">Contacts et RDV</a>
-        <div class="sub-menu">
+        <span class="nav-item" (click)="toggleSubMenu($event, 'contact')"
+          >Contacts et RDV</span
+        >
+        <div class="sub-menu" [class.open]="activeSubmenu === 'contact'">
           <ul>
-            <li><a href="/contact">Contacts</a></li>
-            <li><a href="/rdv">Prendre rendez-vous</a></li>
+            <li><a href="/contact" (click)="closeMenu()">Contacts</a></li>
+            <li>
+              <a href="/rdv" (click)="closeMenu()">Prendre rendez-vous</a>
+            </li>
           </ul>
         </div>
       </li>
-      <li><a href="/blog">Blog</a></li>
+      <li><span class="nav-item" (click)="closeMenu()">Blog</span></li>
     </ul>
   </nav>
+
+  <!-- Overlay pour fermer le menu en cliquant à l'extérieur -->
+  <div class="menu-overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
 </header>
