@@ -38,6 +38,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # La branche où tu souhaites déployer ton projet
-          folder: dist/nom-de-ton-projet # Le chemin vers le dossier 'dist' de ton projet Angular (remplace 'nom-de-ton-projet' par le nom de ton projet)
+          folder: dist/pz # Le chemin vers le dossier 'dist' de ton projet Angular (remplace 'nom-de-ton-projet' par le nom de ton projet)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
