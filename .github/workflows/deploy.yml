@@ -20,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "16" # Change la version de Node.js si nécessaire
+          node-version: "18.19" # Mise à jour à la version minimale requise
 
       # Installer les dépendances
       - name: Install dependencies
