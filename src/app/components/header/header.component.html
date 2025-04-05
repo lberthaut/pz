@@ -1,6 +1,6 @@
 <header class="app-header">
   <div class="logo">
-    <a href="">
+    <a [routerLink]="['/']">
       <img class="logo" src="images/logo.png" alt="Logo physiozone" />
     </a>
   </div>
@@ -25,9 +25,15 @@
         >
         <div class="sub-menu" [class.open]="activeSubmenu === 'about'">
           <ul>
-            <li><a href="/mission" (click)="closeMenu()">Notre mission</a></li>
             <li>
-              <a href="/vision" (click)="closeMenu()">Le cabinet Physiozone</a>
+              <a [routerLink]="['/mission']" (click)="closeMenu()"
+                >Notre mission</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/cabinet']" (click)="closeMenu()"
+                >Le cabinet Physiozone</a
+              >
             </li>
           </ul>
         </div>
@@ -38,10 +44,14 @@
         >
         <div class="sub-menu" [class.open]="activeSubmenu === 'services'">
           <ul>
-            <li><a href="/consulting" (click)="closeMenu()">Kiné</a></li>
-            <li><a href="/development" (click)="closeMenu()">Osthéo</a></li>
-            <li><a href="/yoga" (click)="closeMenu()">Yoga</a></li>
-            <li><a href="/pilates" (click)="closeMenu()">Pilates</a></li>
+            <li><a [routerLink]="['/kine']" (click)="closeMenu()">Kiné</a></li>
+            <li>
+              <a [routerLink]="['/ostheo']" (click)="closeMenu()">Osthéo</a>
+            </li>
+            <li><a [routerLink]="['/yoga']" (click)="closeMenu()">Yoga</a></li>
+            <li>
+              <a [routerLink]="['/pilates']" (click)="closeMenu()">Pilates</a>
+            </li>
           </ul>
         </div>
       </li>
@@ -52,10 +62,14 @@
         <div class="sub-menu" [class.open]="activeSubmenu === 'team'">
           <ul>
             <li>
-              <a href="/team" (click)="closeMenu()">Membres de l'équipe</a>
+              <a [routerLink]="['/team']" (click)="closeMenu()"
+                >Membres de l'équipe</a
+              >
             </li>
             <li>
-              <a href="/photos" (click)="closeMenu()">Photos de vacances</a>
+              <a [routerLink]="['/photos']" (click)="closeMenu()"
+                >Photos de vacances</a
+              >
             </li>
           </ul>
         </div>
@@ -66,9 +80,13 @@
         >
         <div class="sub-menu" [class.open]="activeSubmenu === 'contact'">
           <ul>
-            <li><a href="/contact" (click)="closeMenu()">Contacts</a></li>
             <li>
-              <a href="/rdv" (click)="closeMenu()">Prendre rendez-vous</a>
+              <a [routerLink]="['/contact']" (click)="closeMenu()">Contacts</a>
+            </li>
+            <li>
+              <a [routerLink]="['/rdv']" (click)="closeMenu()"
+                >Prendre rendez-vous</a
+              >
             </li>
           </ul>
         </div>
