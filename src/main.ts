@@ -1,6 +1,13 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+const providers = [
+  { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ...appConfig.providers,
+];
+
+bootstrapApplication(AppComponent, {
+  providers: providers,
+}).catch((err) => console.error(err));
