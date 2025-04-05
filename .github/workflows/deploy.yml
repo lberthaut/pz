@@ -31,13 +31,13 @@ jobs:
       # Construire le projet Angular
       - name: Build Angular project
         run: |
-          ng build
+          ng build --base-href="/pz/"
 
       # Déployer sur GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # La branche où tu souhaites déployer ton projet
-          folder: dist/pz # Le chemin vers le dossier 'dist' de ton projet Angular (remplace 'nom-de-ton-projet' par le nom de ton projet)
+          folder: dist/pz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
