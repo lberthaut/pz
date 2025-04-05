@@ -32,7 +32,7 @@ jobs:
 
       - name: Build Angular project
         run: |
-          npm run build -- --configuration production --base-href="/nom-de-votre-repo/"
+          npm run build -- --configuration production --base-href="/pz/"
         timeout-minutes: 5
 
       - name: Deploy to GitHub Pages
