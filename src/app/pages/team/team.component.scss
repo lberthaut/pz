@@ -1,4 +1,10 @@
 .team-container {
+  margin: 0;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.team-container {
   display: flex;
   flex-direction: column; // Ou 'row' si tu souhaites afficher les tuiles horizontalement
   gap: 20px; // Espacement entre les tuiles
