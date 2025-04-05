@@ -80,10 +80,10 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/404.html",
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public/images",
+                "output": "images"
               }
             ],
             "styles": ["src/styles.scss"],
