@@ -20,7 +20,7 @@ export class TeamtileComponent {
 
   typeText() {
     let index = 0;
-    const typingSpeed = 50; // Vitesse de l'animation en ms
+    const typingSpeed = 15; // Vitesse de l'animation en ms
 
     const interval = setInterval(() => {
       if (index < this.text.length) {

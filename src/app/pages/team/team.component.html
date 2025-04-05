@@ -1,8 +1,10 @@
-<div class="team-container">
-  <app-teamtile
-    *ngFor="let member of teamMembers"
-    [imageUrl]="member.imageUrl"
-    [text]="member.text"
-  >
-  </app-teamtile>
-</div>
+<main class="team-container">
+  <div class="team-container">
+    <app-teamtile
+      *ngFor="let member of teamMembers"
+      [imageUrl]="member.imageUrl"
+      [text]="member.text"
+    >
+    </app-teamtile>
+  </div>
+</main>
