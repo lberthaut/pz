@@ -39,7 +39,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/pz
+          folder: dist/pz/browser
           clean: true # Nettoie la branche de destination avant le déploiement
           token: ${{ secrets.GITHUB_TOKEN }} # Token explicite
         timeout-minutes: 3
